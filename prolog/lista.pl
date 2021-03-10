@@ -56,6 +56,18 @@ inverti([Head|Tail], Inversa):-
 
 /*
  * Variante dell' inverti che deve evitare di usare l'append, che è computazionalmente molto pesante.
+ * ?- invertiVeloce([1,2,3],[],Ris).
+ * Ris = [3, 2, 1].
  */
-% invertiAlt/3 - invertiAlt (+Lista, -ListaInversa)
-inverti([], []).
+% invertiVeloce/3 - invertiVeloce (+Lista, +InversaAccumulata, -ListaInversa)
+invertiVeloce([], InversaAccumulata, InversaAccumulata).
+invertiVeloce([Head|Tail],InversaAccumulata, ListaInversa):-
+    invertiVeloce(Tail, [Head|InversaAccumulata], ListaInversa).
+
+/*
+ * inserisciVeloce è scomodo nell' utilizzo perchè necessita 2 input,
+ * dove il secondo è sempre []. 
+ * E' possibile però creare una regola che nasconda gli input non necessari: 
+ */
+% invertiOpt/2 - invertiOpt(+Lista, -ListaInversa)
+invertiOpt(Lista, ListaInversa) :- invertiVeloce(Lista,[], ListaInversa).
