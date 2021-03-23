@@ -1,3 +1,4 @@
+:- dynamic trasforma/3, applicabile/2, finale/1, iniziale/1.
 % file di esecuzione del labirinto: implementa una strategia di ricerca
 % RUN:
 % LABIRINTO SEMPLICE

@@ -4,7 +4,11 @@
  * Called with [hello,darkness,my,old,friend]
  */ 
 
+% TODO: scegliere quale labirinto risolvere
 :- consult('labirinto-semplice.model.pl').
+% :- consult('labirinto-grande.model.pl').
+% end labirinto
+
 :- consult('labirinto.action.pl').
 :- consult('dfs.action.pl').
 
@@ -12,7 +16,7 @@
 :- initialization(main).
 
 main :-
-    format('Soluzione labirinto semplice~n'),
+    format('Soluzione del labirinto:~n'),
     ricerca_soluzione(L),  
     length(L,Length),
     format('Length: ~d ~n', Length),
